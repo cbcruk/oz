@@ -6,9 +6,12 @@ export const config = {
   runtime: 'experimental-edge',
 }
 
-const font = fetch(
-  new URL('../../public/Pretendard-SemiBold.ttf', import.meta.url)
-).then((res) => res.arrayBuffer())
+const ASSETS = {
+  font: 'https://wantedspace.vercel.app/Pretendard-SemiBold.ttf',
+  image: 'https://wantedspace.vercel.app/share.png',
+}
+
+const font = fetch(ASSETS.font).then((res) => res.arrayBuffer())
 
 async function Og(req: NextRequest) {
   const fontData = await font
@@ -17,7 +20,7 @@ async function Og(req: NextRequest) {
 
   return new ImageResponse(
     (
-      <div style={styles.wrapper}>
+      <div style={{ ...styles.wrapper, background: `url(${ASSETS.image})` }}>
         <div style={styles.title}>{title?.replace('_', '\n')}</div>
       </div>
     ),
@@ -37,7 +40,6 @@ async function Og(req: NextRequest) {
 
 const styles: Record<string, CSSProperties> = {
   wrapper: {
-    background: `url(https://wantedspace.vercel.app/share.png)`,
     width: '100%',
     height: '100%',
     display: 'flex',
