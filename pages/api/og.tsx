@@ -7,7 +7,7 @@ export const config = {
 }
 
 const ASSETS = {
-  font: 'https://wantedspace.vercel.app/Pretendard-SemiBold.ttf',
+  font: 'https://wantedspace.vercel.app/Pretendard-Bold.ttf',
   image: 'https://wantedspace.vercel.app/share.png',
 }
 
@@ -44,7 +44,7 @@ const styles: Record<string, CSSProperties> = {
     height: '100%',
     display: 'flex',
     justifyContent: 'center',
-    paddingTop: 60,
+    paddingTop: 62,
     fontFamily: 'Pretendard',
     fontStyle: 'normal',
     fontSize: 40,
